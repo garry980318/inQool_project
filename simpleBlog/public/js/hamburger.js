@@ -1,7 +1,7 @@
 // Author: Radoslav Grenčík, xgrenc00@stud.fit.vutbr.cz
 
 function checkWidth() {
-    if ($(window).width() > 800) {
+    if ($(window).width() > 900) {
         $(".navbar-nav").height("100%");
         $(".navbar-nav li").show();
     } else {
@@ -26,7 +26,7 @@ $("#hamburger").click(function () {
 
 // HIDE HAMBURGER STYLE MENU WHEN CLICKED ON ITEM
 $(".navbar-nav li a").click(function () {
-    if ($(window).width() <= 800) {
+    if ($(window).width() <= 900) {
         $(".navbar-nav").height(0);
         $(".navbar-nav li").hide();
     }

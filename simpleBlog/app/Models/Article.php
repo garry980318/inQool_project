@@ -14,7 +14,7 @@ class Article extends Model
         'content'
     ];
     protected $table = 'articles';
-    protected $primaryKey = 'article_id';
+    protected $primaryKey = 'id_article';
 
     public function getCreatedAtAttribute($value)
     {

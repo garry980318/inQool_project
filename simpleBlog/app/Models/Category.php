@@ -11,7 +11,7 @@ class Category extends Model
 
     protected $fillable = ['name'];
     protected $table = 'categories';
-    protected $primaryKey = 'category_id';
+    protected $primaryKey = 'id_category';
 
     public function getCreatedAtAttribute($value)
     {

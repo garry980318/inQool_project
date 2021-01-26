@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 class ArticleCategory extends Model
@@ -18,7 +17,7 @@ class ArticleCategory extends Model
     protected $primaryKey = ['id_article', 'id_category'];
     public $incrementing = false;
 
-    protected function setKeysForSaveQuery(Builder $query)
+    protected function setKeysForSaveQuery($query)
     {
         $query
             ->where('id_article', '=', $this->getAttribute('id_article'))

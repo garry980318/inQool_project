@@ -54,8 +54,12 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 5%;
-    background-color: #3e1255;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 15px 3%;
+    z-index: 1;
+    background-color: #263d66;
 }
 
 #header-name a {
@@ -72,7 +76,6 @@ header {
 }
 
 /* NAVIGATION */
-
 #navbar ul {
     display: flex;
     flex-direction: row;
@@ -110,15 +113,61 @@ header {
     color: white;
 }
 
+/* CONTENT */
+#addArticlePage {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding-top: 60px;
+    padding-bottom: 34px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+#articlesPage {
+    padding: 80px 20px 0px 20px;
+}
+
+#img-background {
+    grid-column: 2;
+    background-image: url("../img/mountain.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
+#form {
+    grid-column: 1;
+    padding: 10px;
+    height: 100%;
+    width: 100%;
+}
+
+.padding-10 {
+    padding: 10px;
+}
+
+textarea {
+    max-height: 200px;
+}
+
+.myAlert {
+    display: flex;
+    justify-content: space-between;
+}
+
 /* FOOTER */
 footer {
-    position: absolute;
+    position: fixed;
     bottom: 0;
-    padding: 150px 0px 0px 0px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     width: 100%;
+    height: 34px;
+    background-color: #263d66;
 }
 
 #footer ul {
@@ -126,6 +175,8 @@ footer {
     flex-direction: row;
     justify-content: space-evenly;
     width: 100%;
+    padding: 0;
+    margin: 0;
 }
 
 .footer-content {
@@ -134,7 +185,7 @@ footer {
 
 .footer-content li {
     display: inline-block;
-    padding: 5px;
+    padding: 6px 10px;
 }
 
 .footer-content li a {
@@ -143,12 +194,12 @@ footer {
     text-transform: uppercase;
     text-decoration: none;
     transition: all 0.3s ease 0s;
-    color: rgba(75, 75, 75, 0.8);
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .footer-content li a:hover {
     cursor: pointer;
-    color: rgba(75, 75, 75, 0.5);
+    color: rgba(180, 180, 180, 0.8);
 }
 
 #footer-link-1 {
@@ -169,13 +220,9 @@ footer {
 
 /* RESPONSIVE CSS */
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 917px) {
     body {
         font-size: 14px;
-    }
-
-    #main {
-        margin-left: 20px;
     }
 
     h1 {
@@ -213,7 +260,7 @@ footer {
     }
 
     .navbar-nav li {
-        background-color: #260339;
+        background-color: #1c273a;
         padding: 15px 20px;
         z-index: 1;
     }
@@ -224,7 +271,7 @@ footer {
 
     #hamburger {
         display: block;
-        position: fixed;
+        position: absolute;
         top: 0;
         right: 0;
         margin-top: 10px;
@@ -238,27 +285,25 @@ footer {
     .bar {
         width: 35px;
         height: 5px;
-        background-color: #868e96;
+        background-color: #a4bed8;
         margin: 6px 0;
         transition: all 0.3s ease 0s;
     }
 
     #hamburger:hover > .bar {
-        background-color: #774a8e;
+        background-color: #5f7994;
     }
 
     /* FOOTER */
     footer {
         position: relative;
-        margin: 0;
-        padding: 70px 0px 0px 0px;
-        flex-direction: column;
+        height: 145px;
+        width: 200%;
     }
 
     #footer ul {
-        display: flex;
         flex-direction: column;
-        width: 100%;
+        align-items: center;
     }
 
     .footer-content {

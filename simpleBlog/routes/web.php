@@ -15,5 +15,6 @@ use \App\Http\Controllers\ArticlesController;
 |
 */
 
-Route::get('/', [AddArticleController::class, 'index']);
+Route::get('/', [AddArticleController::class, 'index'])->name('home');
+Route::post('/store', [AddArticleController::class, 'store'])->name('store');
 Route::get('/articles', [ArticlesController::class, 'index']);
