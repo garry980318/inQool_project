@@ -1,0 +1,287 @@
+/* Author: Radoslav Grenčík, xgrenc00@stud.fit.vutbr.cz */
+
+* {
+    font-family: "Montserrat";
+    font-weight: 500;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    /* outline: 1px solid red; */
+}
+
+body {
+    font-size: 16px;
+    color: #868e96;
+}
+
+#main {
+    margin-left: 250px;
+}
+
+h1 {
+    font-size: 40px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #774a8e;
+}
+
+h2 {
+    font-size: 35px;
+    text-transform: uppercase;
+    color: #592a71;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 30px;
+    color: #9874aa;
+}
+
+h4 {
+    font-size: 25px;
+    margin: 0;
+    padding: 7px;
+}
+
+h5 {
+    font-size: 25px;
+    padding: 7px;
+    color: #774a8e;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: #3e1255;
+}
+
+#header-name a {
+    color: rgba(255, 255, 255, 1);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 20px;
+    transition: all 0.3s ease 0s;
+}
+
+#header-name a:hover {
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* NAVIGATION */
+
+#navbar ul {
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar-nav {
+    list-style: none;
+}
+
+.navbar-nav li {
+    padding: 0px 0px 0px 40px;
+    display: inline-block;
+}
+
+.navbar-nav li a {
+    font-size: 16px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease 0s;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.navbar-nav li a:hover {
+    cursor: pointer;
+    color: rgba(180, 180, 180, 0.8);
+}
+
+#hamburger {
+    display: none;
+}
+
+.active {
+    border-bottom: 2px solid;
+    color: white;
+}
+
+/* FOOTER */
+footer {
+    position: absolute;
+    bottom: 0;
+    padding: 150px 0px 0px 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+#footer ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.footer-content {
+    list-style: none;
+}
+
+.footer-content li {
+    display: inline-block;
+    padding: 5px;
+}
+
+.footer-content li a {
+    font-size: 16px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease 0s;
+    color: rgba(75, 75, 75, 0.8);
+}
+
+.footer-content li a:hover {
+    cursor: pointer;
+    color: rgba(75, 75, 75, 0.5);
+}
+
+#footer-link-1 {
+    order: 1;
+}
+
+#footer-link-2 {
+    order: 4;
+}
+
+#footer-link-3 {
+    order: 2;
+}
+
+#footer-link-4 {
+    order: 3;
+}
+
+/* RESPONSIVE CSS */
+
+@media screen and (max-width: 800px) {
+    body {
+        font-size: 14px;
+    }
+
+    #main {
+        margin-left: 20px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    h2 {
+        font-size: 25px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    h4 {
+        font-size: 15px;
+    }
+
+    h5 {
+        font-size: 15px;
+    }
+
+    header {
+        padding: 0px;
+        display: block;
+    }
+
+    #header-name {
+        padding: 15px 20px;
+    }
+
+    /* NAVBAR */
+    #navbar ul {
+        flex-direction: column;
+    }
+
+    .navbar-nav li {
+        background-color: #260339;
+        padding: 15px 20px;
+        z-index: 1;
+    }
+
+    .navbar-nav li a:hover {
+        color: rgba(180, 180, 180, 0.6);
+    }
+
+    #hamburger {
+        display: block;
+        position: fixed;
+        top: 0;
+        right: 0;
+        margin-top: 10px;
+        margin-right: 15px;
+    }
+
+    #hamburger:hover {
+        cursor: pointer;
+    }
+
+    .bar {
+        width: 35px;
+        height: 5px;
+        background-color: #868e96;
+        margin: 6px 0;
+        transition: all 0.3s ease 0s;
+    }
+
+    #hamburger:hover > .bar {
+        background-color: #774a8e;
+    }
+
+    /* FOOTER */
+    footer {
+        position: relative;
+        margin: 0;
+        padding: 70px 0px 0px 0px;
+        flex-direction: column;
+    }
+
+    #footer ul {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .footer-content {
+        list-style: none;
+    }
+
+    .footer-content li {
+        display: block;
+    }
+
+    #footer-link-1 {
+        order: 1;
+    }
+
+    #footer-link-2 {
+        order: 2;
+    }
+
+    #footer-link-3 {
+        order: 3;
+    }
+
+    #footer-link-4 {
+        order: 4;
+    }
+}
