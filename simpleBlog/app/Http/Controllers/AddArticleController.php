@@ -33,6 +33,9 @@ class AddArticleController extends Controller
             array_push($oldCategoryNames, $category->name);
         }
         $requestCategoryNames = array_unique(explode(',', $request->input('categories')));
+        for ($i = 0; $i < count($requestCategoryNames); $i++) {
+            $requestCategoryNames[$i] = trim($requestCategoryNames[$i]);
+        }
         $newCategoryNames = array_diff($requestCategoryNames, $oldCategoryNames); // category names to be saved
 
         foreach ($newCategoryNames as $categoryName) { // save new categories
