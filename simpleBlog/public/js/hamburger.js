@@ -2,11 +2,9 @@
 
 function checkWidth() {
     if ($(window).width() > 900) {
-        $(".navbar-nav").height("100%");
-        $(".navbar-nav li").show();
+        $(".navbar-nav").show();
     } else {
-        $(".navbar-nav").height(0);
-        $(".navbar-nav li").hide();
+        $(".navbar-nav").hide();
     }
 }
 
@@ -15,19 +13,16 @@ $(window).resize(checkWidth);
 
 // DISPLAY AND HIDE THE HAMBURGER STYLE MENU
 $("#hamburger").click(function () {
-    if ($(".navbar-nav li").is(":visible")) {
-        $(".navbar-nav").height(0);
-        $(".navbar-nav li").hide();
+    if ($(".navbar-nav").is(":visible")) {
+        $(".navbar-nav").hide();
     } else {
-        $(".navbar-nav").height($(".navbar-nav li").height() * 2);
-        $(".navbar-nav li").show();
+        $(".navbar-nav").show();
     }
 });
 
 // HIDE HAMBURGER STYLE MENU WHEN CLICKED ON ITEM
 $(".navbar-nav li a").click(function () {
     if ($(window).width() <= 900) {
-        $(".navbar-nav").height(0);
-        $(".navbar-nav li").hide();
+        $(".navbar-nav").hide();
     }
 });

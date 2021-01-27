@@ -33,10 +33,11 @@ class AddArticleController extends Controller
             array_push($oldCategoryNames, $category->name);
         }
         $requestCategoryNames = array_unique(explode(',', $request->input('categories')));
-        for ($i = 0; $i < count($requestCategoryNames); $i++) {
-            $requestCategoryNames[$i] = trim($requestCategoryNames[$i]);
+        $trimmedRequestCategoryNames = array();
+        foreach ($requestCategoryNames as $requestCategoryName) {
+            array_push($trimmedRequestCategoryNames, trim($requestCategoryName));
         }
-        $newCategoryNames = array_diff($requestCategoryNames, $oldCategoryNames); // category names to be saved
+        $newCategoryNames = array_diff($trimmedRequestCategoryNames, $oldCategoryNames); // category names to be saved
 
         foreach ($newCategoryNames as $categoryName) { // save new categories
             if (isset($categoryName) && $categoryName !== '') {
@@ -46,7 +47,7 @@ class AddArticleController extends Controller
             }
         }
 
-        foreach ($requestCategoryNames as $categoryName) { // make realtionships
+        foreach ($trimmedRequestCategoryNames as $categoryName) { // make realtionships
             if (isset($categoryName) && $categoryName !== '') {
                 $categoryId = Category::where('name', $categoryName)->first()->id_category;
                 $articleCategory = new ArticleCategory;
@@ -56,6 +57,7 @@ class AddArticleController extends Controller
             }
         }
 
-        return back()->with('success', 'Article has been created!');
+        // return back()->with('success', 'Article has been created!');
+        return response()->json(['success' => 'Article has been created!']);
     }
 }
