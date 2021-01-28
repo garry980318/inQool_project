@@ -2,8 +2,9 @@
 
 ## Requirements
 
--   Composer
 -   PHP
+-   Composer
+-   Node.js
 -   MySQL (XAMPP)
 
 ## Steps
@@ -17,5 +18,7 @@
 7. Run command **php artisan key:generate**
 8. Run command **php artisan migrate**
 9. Run (optional) command **php artisan db:seed**
-10. Run command **php artisan serve**
-11. Application is running on **localhost:8000** (127.0.0.1:8000)
+10. Run command **npm install**
+11. Run command **npm run dev** or **npm run production**
+12. Run command **php artisan serve**
+13. Application is running on **localhost:8000** (127.0.0.1:8000)
