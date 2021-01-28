@@ -1,11 +1,10 @@
-/* Author: Radoslav Grenčík, xgrenc00@stud.fit.vutbr.cz */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap");
 
 * {
-    font-family: "Montserrat";
+    font-family: "Montserrat", sans-serif;
     font-weight: 500;
     margin: 0px;
     padding: 0px;
-    /* outline: 1px solid red; */
 }
 
 html {
@@ -43,10 +42,11 @@ h3 {
     word-wrap: break-word;
 }
 
-.inline-header {
+.inline-heading {
     display: inline;
 }
 
+/* HEADER */
 header {
     grid-area: header;
     display: flex;
@@ -288,6 +288,7 @@ footer {
         font-size: 12px;
     }
 
+    /* HEADER */
     header {
         padding: 0px;
         display: block;
@@ -297,7 +298,7 @@ footer {
         padding: 15px 20px;
     }
 
-    /* NAVBAR */
+    /* NAVIGATION */
     #navbar ul {
         flex-direction: column;
     }

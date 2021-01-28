@@ -4,19 +4,18 @@
 
 -   Composer
 -   PHP
--   MySQL (you can use XAMPP or LAMP)
+-   MySQL (XAMPP)
 
 ## Steps
 
-1. clone your project
-2. Go to the folder application using **cd** command on your cmd or terminal
-3. Run **composer install** on your cmd or terminal
-4. Copy **.env.example** file to **.env** on the root folder. You can type **cp .env.example .env**
-5. Open your **.env** file and change the database name (**DB_DATABASE**) to whatever you have, username (**DB_USERNAME**) and password (**DB_PASSWORD**) field
-   correspond to your configuration. By default, the username is **root** and you can leave the password field empty (**This is for XAMPP**)
-   By default, the username is **root** and password is also **root** (**This is for LAMP**)
-6. Run **php artisan key:generate**
-7. Run **php artisan migrate:fresh**
-8. Run **php artisan db:seed**
-9. Run **php artisan serve**
-10. Go to **localhost:8000**
+1. Clone the project
+2. Open the application folder in terminal
+3. Run command **composer install**
+4. Copy **.env.example** file to **.env** file in the root folder. Run command **cp .env.example .env**
+5. Open the **.env** file and change the database name (**DB_DATABASE**), username (**DB_USERNAME**) and password (**DB_PASSWORD**) field, so all correspond to your configuration. By default, the username is **root** and the password field is empty (**correct for XAMPP**).
+6. Start **XAMPP** and its modules **Apache** and **MySQL**
+7. Run command **php artisan key:generate**
+8. Run command **php artisan migrate**
+9. Run (optional) command **php artisan db:seed**
+10. Run command **php artisan serve**
+11. Application is running on **localhost:8000** (127.0.0.1:8000)

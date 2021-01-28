@@ -48,6 +48,8 @@
         <!-- END FORM -->
         <div id="img-background"></div>
     </div>
+
+    <!-- SCRIPTS -->
     <script src="{{ URL::asset('js/ajaxFormControl.js') }}"></script>
 
 @endsection

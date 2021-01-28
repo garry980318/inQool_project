@@ -1,5 +1,3 @@
-// Author: Radoslav Grenčík, xgrenc00@stud.fit.vutbr.cz
-
 function checkWidth() {
     if ($(window).width() > 900) {
         $(".navbar-nav").show();

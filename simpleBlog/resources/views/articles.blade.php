@@ -5,7 +5,7 @@
         <div id="article1">
             @if (count($articleTitles) >= 1)
                 <h1>{{ $articleTitles[0] }}</h1>
-                <h3 class="inline-header">CATEGORIES: </h3>
+                <h3 class="inline-heading">CATEGORIES: </h3>
                 <span>|</span>
                 @foreach ($articleCategories[0] as $articleCategory)
                     <span class="article-category">{{ $articleCategory }}</span>
@@ -20,7 +20,7 @@
         <div id="article2">
             @if (count($articleTitles) >= 2)
                 <h1>{{ $articleTitles[1] }}</h1>
-                <h3 class="inline-header">CATEGORIES:</h3>
+                <h3 class="inline-heading">CATEGORIES:</h3>
                 <span>|</span>
                 @foreach ($articleCategories[1] as $articleCategory)
                     <span class="article-category">{{ $articleCategory }}</span>
@@ -35,7 +35,7 @@
         <div id="article3">
             @if (count($articleTitles) >= 3)
                 <h1>{{ $articleTitles[2] }}</h1>
-                <h3 class="inline-header">CATEGORIES:</h3>
+                <h3 class="inline-heading">CATEGORIES:</h3>
                 <span>|</span>
                 @foreach ($articleCategories[2] as $articleCategory)
                     <span class="article-category">{{ $articleCategory }}</span>
@@ -48,7 +48,7 @@
         </div>
 
         <div id="all-categories">
-            <h2 class="inline-header">NUMBER OF CATEGORIES:</h2>
+            <h2 class="inline-heading">NUMBER OF CATEGORIES:</h2>
             <span class="counter">{{ $numOfCategories }}</span>
             @if ($numOfCategories > 0)
                 <h2>NUMBER OF ARTICLES IN INDIVIDUAL CATEGORIES:</h2>
