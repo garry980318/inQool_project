@@ -16,6 +16,7 @@ class ArticleCategory extends Model
     protected $table = 'article_categories';
     protected $primaryKey = ['id_article', 'id_category'];
     public $incrementing = false;
+    public $timestamps = false;
 
     protected function setKeysForSaveQuery($query)
     {
@@ -23,25 +24,5 @@ class ArticleCategory extends Model
             ->where('id_article', '=', $this->getAttribute('id_article'))
             ->where('id_category', '=', $this->getAttribute('id_category'));
         return $query;
-    }
-
-    public function getCreatedAtAttribute($value)
-    {
-        return date('j M Y, G:i', strtotime($value));
-    }
-
-    public function getUpdatedAtAttribute($value)
-    {
-        return date('j M Y, G:i', strtotime($value));
-    }
-
-    public function article()
-    {
-        $this->belongsTo('App\Article');
-    }
-
-    public function category()
-    {
-        $this->belongsTo('App\Category');
     }
 }

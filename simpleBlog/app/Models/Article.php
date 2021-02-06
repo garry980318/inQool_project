@@ -26,8 +26,8 @@ class Article extends Model
         return date('j M Y, G:i', strtotime($value));
     }
 
-    public function articlecategory()
+    public function categories()
     {
-        return $this->hasMany('App\ArticleCategory');
+        return $this->belongsToMany(Category::class, 'article_categories', 'id_article', 'id_category');
     }
 }

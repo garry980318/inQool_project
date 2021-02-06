@@ -9,7 +9,9 @@ class Category extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name'];
+    protected $fillable = [
+        'name'
+    ];
     protected $table = 'categories';
     protected $primaryKey = 'id_category';
 
@@ -23,8 +25,8 @@ class Category extends Model
         return date('j M Y, G:i', strtotime($value));
     }
 
-    public function articlecategory()
+    public function articles()
     {
-        return $this->hasMany('App\ArticleCategory');
+        return $this->belongsToMany(Article::class, 'article_categories', 'id_category', 'id_article');
     }
 }

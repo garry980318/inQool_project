@@ -16,7 +16,6 @@ class CreateArticleCategoriesTable extends Migration
         Schema::create('article_categories', function (Blueprint $table) {
             $table->integer('id_article')->unsigned();
             $table->integer('id_category')->unsigned();
-            $table->timestamps();
         });
 
         Schema::table('article_categories', function (Blueprint $table) {

@@ -200,8 +200,17 @@ textarea {
     color: #233141;
 }
 
+.pill {
+    padding: 1px 5px;
+    margin: 2px;
+    border: 1px solid #233141;
+    border-radius: 3px;
+    white-space: nowrap;
+}
+
 p {
     text-align: justify;
+    padding-top: 10px;
 }
 
 #all-categories {
@@ -211,6 +220,8 @@ p {
 .counter {
     color: #006eff;
     font-weight: 600;
+    padding: 0;
+    margin: 0;
 }
 
 /* FOOTER */
@@ -329,6 +340,10 @@ footer {
 
     .article-category {
         font-size: 10px;
+    }
+
+    .counter {
+        font-size: 12px;
     }
 
     /* FOOTER */
