@@ -3,45 +3,45 @@
 
     <div id="articlesPage">
         <div id="article1">
-            @if (count($articleTitles) >= 1)
-                <h1>{{ $articleTitles[0] }}</h1>
+            @if (count($articles) >= 1)
+                <h1>{{ $articles[0]->title }}</h1>
                 <h3 class="inline-heading">CATEGORIES: </h3>
                 <span>|</span>
                 @foreach ($articleCategories[0] as $articleCategory)
                     <span class="article-category">{{ $articleCategory }}</span>
                     <span>|</span>
                 @endforeach
-                <p>{{ $articleContents[0] }}</p>
+                <p>{{ $articles[0]->content }}</p>
             @else
                 <h3>NEWEST ARTICLE WILL APPEAR HERE</h3>
             @endif
         </div>
 
         <div id="article2">
-            @if (count($articleTitles) >= 2)
-                <h1>{{ $articleTitles[1] }}</h1>
+            @if (count($articles) >= 2)
+                <h1>{{ $articles[1]->title }}</h1>
                 <h3 class="inline-heading">CATEGORIES:</h3>
                 <span>|</span>
                 @foreach ($articleCategories[1] as $articleCategory)
                     <span class="article-category">{{ $articleCategory }}</span>
                     <span>|</span>
                 @endforeach
-                <p>{{ $articleContents[1] }}</p>
+                <p>{{ $articles[1]->content }}</p>
             @else
                 <h3>OLDER ARTICLE WILL APPEAR HERE</h3>
             @endif
         </div>
 
         <div id="article3">
-            @if (count($articleTitles) >= 3)
-                <h1>{{ $articleTitles[2] }}</h1>
+            @if (count($articles) >= 3)
+                <h1>{{ $articles[2]->title }}</h1>
                 <h3 class="inline-heading">CATEGORIES:</h3>
                 <span>|</span>
                 @foreach ($articleCategories[2] as $articleCategory)
                     <span class="article-category">{{ $articleCategory }}</span>
                     <span>|</span>
                 @endforeach
-                <p>{{ $articleContents[2] }}</p>
+                <p>{{ $articles[2]->content }}</p>
             @else
                 <h3>EVEN OLDER ARTICLE WILL APPEAR HERE</h3>
             @endif
@@ -53,14 +53,14 @@
             @if ($numOfCategories > 0)
                 <h2>NUMBER OF ARTICLES IN INDIVIDUAL CATEGORIES:</h2>
                 <span>|</span>
-                @for ($i = 0; $i < $numOfCategories; $i++)
+                @foreach ($categoryArticles as $categoryArticle)
                     <span id="category-table">
-                        <span class="article-category">{{ $categoryNames[$i] }}</span>
+                        <span class="article-category">{{ $categoryArticle->name }}</span>
                         <span> - </span>
-                        <span class="counter">{{ $numOfCategoryArticles[$i] }}</span>
+                        <span class="counter">{{ $categoryArticle->numOfArticles }}</span>
                         <span>|</span>
                     </span>
-                @endfor
+                @endforeach
             @endif
         </div>
     </div>

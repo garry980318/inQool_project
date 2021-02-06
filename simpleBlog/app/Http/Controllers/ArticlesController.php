@@ -2,31 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use \App\Models\Article;
 use \App\Models\Category;
 use \App\Models\ArticleCategory;
+use Illuminate\Support\Facades\DB;
 
 class ArticlesController extends Controller
 {
     public function index()
     {
-        $articles = Article::orderBy('created_at', 'desc')->get();
-        $articleIds = array();
-        $articleTitles = array();
-        $articleContents = array();
-        foreach ($articles as $article) {
-            array_push($articleIds, $article->id_article);
-            array_push($articleTitles, $article->title);
-            array_push($articleContents, $article->content);
-        }
+        $articles = DB::table('articles')
+            ->select('articles.id_article', 'articles.title', 'articles.content')
+            ->orderBy('articles.created_at', 'desc')
+            ->limit(3)
+            ->get()
+            ->toArray();
 
         $articleCategories = array();
-        for ($i = 0; $i < count($articleIds); $i++) {
-            if ($i >= 3) {
-                break;
-            }
-            $tmpArticleCategories = ArticleCategory::where('id_article', $articleIds[$i])->get();
+        foreach ($articles as $article) {
+            $tmpArticleCategories = ArticleCategory::where('id_article', $article->id_article)->get();
             $tmpArray = array();
             foreach ($tmpArticleCategories as $tmpArticleCategory) {
                 $tmpCategory = Category::where('id_category', $tmpArticleCategory->id_category)->get();
@@ -35,18 +28,18 @@ class ArticlesController extends Controller
             array_push($articleCategories, $tmpArray);
         }
 
-        $categories = Category::all();
-        $categoryIds = array();
-        $categoryNames = array();
-        $numOfCategoryArticles = array();
-        foreach ($categories as $category) {
-            array_push($categoryIds, $category->id_category);
-            array_push($categoryNames, $category->name);
-        }
-        foreach ($categoryIds as $categoryId) {
-            array_push($numOfCategoryArticles, count(ArticleCategory::where('id_category', $categoryId)->get()));
-        }
+        $categoryArticles = DB::table('categories')
+            ->join('article_categories', 'categories.id_category', '=', 'article_categories.id_category')
+            ->select('categories.name', DB::raw('COUNT(article_categories.id_category) as numOfArticles'))
+            ->groupBy('categories.name')
+            ->orderBy('categories.id_category')
+            ->get();
 
-        return view('articles', ['articleTitles' => $articleTitles, 'articleContents' => $articleContents, 'articleCategories' => $articleCategories, 'categoryNames' => $categoryNames, 'numOfCategoryArticles' => $numOfCategoryArticles, 'numOfCategories' => count($categories)]);
+        return view('articles', [
+            'articles' => $articles,
+            'articleCategories' => $articleCategories,
+            'categoryArticles' => $categoryArticles,
+            'numOfCategories' => Category::all()->count()
+        ]);
     }
 }

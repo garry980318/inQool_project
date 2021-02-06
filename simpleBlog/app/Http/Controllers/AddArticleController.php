@@ -22,42 +22,35 @@ class AddArticleController extends Controller
             'categories' => 'required'
         ]);
 
-        $article = new Article;
-        $article->title = $request->input('title');
-        $article->content = $request->input('content');
-        $article->save();
-        $articleId = Article::all()->last()->id_article;
+        $article = Article::create([
+            'title' => $request->input('title'),
+            'content' => $request->input('content')
+        ]);
 
         $oldCategoryNames = array();
-        foreach (Category::all() as $category) {
+        foreach (Category::select('name')->get() as $category) {
             array_push($oldCategoryNames, $category->name);
         }
-        $requestCategoryNames = array_unique(explode(',', $request->input('categories')));
-        $trimmedRequestCategoryNames = array();
-        foreach ($requestCategoryNames as $requestCategoryName) {
-            array_push($trimmedRequestCategoryNames, trim($requestCategoryName));
-        }
-        $newCategoryNames = array_diff($trimmedRequestCategoryNames, $oldCategoryNames); // category names to be saved
+        $requestCategoryNames = array_map('trim', array_unique(explode(',', $request->input('categories'))));
+        $newCategoryNames = array_diff($requestCategoryNames, $oldCategoryNames); // category names to be saved
 
         foreach ($newCategoryNames as $categoryName) { // save new categories
             if (isset($categoryName) && $categoryName !== '') {
-                $category = new Category;
-                $category->name = $categoryName;
-                $category->save();
+                Category::create([
+                    'name' => $categoryName
+                ]);
             }
         }
 
-        foreach ($trimmedRequestCategoryNames as $categoryName) { // make realtionships
+        foreach ($requestCategoryNames as $categoryName) { // make relationships
             if (isset($categoryName) && $categoryName !== '') {
-                $categoryId = Category::where('name', $categoryName)->first()->id_category;
-                $articleCategory = new ArticleCategory;
-                $articleCategory->id_article = $articleId;
-                $articleCategory->id_category = $categoryId;
-                $articleCategory->save();
+                ArticleCategory::create([
+                    'id_article' => $article->id_article,
+                    'id_category' => Category::where('name', $categoryName)->first()->id_category
+                ]);
             }
         }
 
-        // return back()->with('success', 'Article has been created!');
         return response()->json(['success' => 'Article has been created!']);
     }
 }
