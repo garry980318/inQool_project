@@ -10,7 +10,7 @@
                 @endforeach
                 <p>{{ $articles[0]->content }}</p>
             @else
-                <h3>NEWEST ARTICLE WILL APPEAR HERE</h3>
+                <h2>NEWEST ARTICLE WILL APPEAR HERE</h2>
             @endif
         </div>
 
@@ -22,7 +22,7 @@
                 @endforeach
                 <p>{{ $articles[1]->content }}</p>
             @else
-                <h3>OLDER ARTICLE WILL APPEAR HERE</h3>
+                <h2>OLDER ARTICLE WILL APPEAR HERE</h2>
             @endif
         </div>
 
@@ -34,7 +34,7 @@
                 @endforeach
                 <p>{{ $articles[2]->content }}</p>
             @else
-                <h3>EVEN OLDER ARTICLE WILL APPEAR HERE</h3>
+                <h2>EVEN OLDER ARTICLE WILL APPEAR HERE</h2>
             @endif
         </div>
 

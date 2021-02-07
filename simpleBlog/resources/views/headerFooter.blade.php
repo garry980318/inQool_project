@@ -16,7 +16,8 @@
 
     <!-- scripts -->
     <script src="{{ URL::asset('https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js') }}"></script>
-    <script src="{{ URL::asset('https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js') }}"
+    <script
+        src="{{ URL::asset('https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js') }}"
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
     </script>
 </head>
@@ -27,11 +28,13 @@
     <header>
         <div id="header-name"><a href="{{ url('/') }}">Radoslav Grenčík</a></div>
         <!-- NAVIGATION -->
-        <nav id="navbar">
-            <ul class="navbar-nav">
-                <li><a id="new-article" href="{{ url('/') }}">Add new article</a></li>
-                <li><a id="articles" href="{{ url('/articles') }}">Articles</a></li>
-            </ul>
+        <nav>
+            <div id="links">
+                <ul>
+                    <li><a id="new-article" href="{{ url('/') }}">Add new article</a></li>
+                    <li><a id="articles" href="{{ url('/articles') }}">Articles</a></li>
+                </ul>
+            </div>
             <div id="hamburger">
                 <div class="bar"></div>
                 <div class="bar"></div>
@@ -43,8 +46,8 @@
     @yield('content')
 
     <!-- FOOTER -->
-    <footer id="footer">
-        <ul class="footer-content">
+    <footer>
+        <ul>
             <li id="footer-link-1"><a href="#">dummy button 1</a></li>
             <li id="footer-link-2"><a href="#">dummy button 2</a></li>
             <li id="footer-link-3"><a href="#">dummy button 3</a></li>

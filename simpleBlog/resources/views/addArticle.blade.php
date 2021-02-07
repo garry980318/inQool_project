@@ -5,9 +5,11 @@
     <div id="addArticlePage">
         <!-- FORM -->
         <div id="form">
-            <div id="success-alert" class="alert alert-success myAlert">
-                <strong></strong>
-                <button class="btn-close"></button>
+            <div id="success-alert">
+                <div class="alert alert-success space-between">
+                    <strong></strong>
+                    <button class="btn-close"></button>
+                </div>
             </div>
             <form id="article-form">
                 <div class="form-group padding-10">
