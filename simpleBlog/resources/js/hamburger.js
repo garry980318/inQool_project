@@ -1,26 +1,23 @@
 function checkWidth() {
     if ($(window).width() > 900) {
-        $(".navbar-nav").show();
-    } else {
-        $(".navbar-nav").hide();
+        $("#links").show();
     }
 }
 
-$(window).on("load", checkWidth);
 $(window).resize(checkWidth);
 
 // DISPLAY AND HIDE THE HAMBURGER STYLE MENU
 $("#hamburger").click(function () {
-    if ($(".navbar-nav").is(":visible")) {
-        $(".navbar-nav").hide();
+    if ($("#links").is(":visible")) {
+        $("#links").hide(300);
     } else {
-        $(".navbar-nav").show();
+        $("#links").show(300);
     }
 });
 
 // HIDE HAMBURGER STYLE MENU WHEN CLICKED ON ITEM
-$(".navbar-nav li a").click(function () {
+$("nav ul li a").click(function () {
     if ($(window).width() <= 900) {
-        $(".navbar-nav").hide();
+        $("#links").hide(300);
     }
 });

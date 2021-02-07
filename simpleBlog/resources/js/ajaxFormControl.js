@@ -20,7 +20,7 @@ $("#create-btn").click(function (event) {
         success: function (response) {
             if (response) {
                 $("#success-alert strong").text(response.success);
-                $("#success-alert").removeClass("hidden");
+                $("#success-alert").show(300);
                 $("#article-form")[0].reset();
             }
         },
@@ -29,14 +29,14 @@ $("#create-btn").click(function (event) {
             $.each(errors, function (key, value) {
                 $("#" + key).addClass("is-invalid");
                 $("#" + key + "-error strong").text(value[0]);
-                $("#" + key + "-error").removeClass("hidden");
+                $("#" + key + "-error").show();
             });
         },
     });
 });
 
 function hideAlert() {
-    $("#success-alert").addClass("hidden");
+    $("#success-alert").hide(300);
     $("#success-alert strong").text("");
 }
 
@@ -45,9 +45,9 @@ function hideErrors() {
     $("#categories").removeClass("is-invalid");
     $("#content").removeClass("is-invalid");
 
-    $("#title-error").addClass("hidden");
-    $("#categories-error").addClass("hidden");
-    $("#content-error").addClass("hidden");
+    $("#title-error").hide();
+    $("#categories-error").hide();
+    $("#content-error").hide();
 
     $("#title-error strong").text("");
     $("#categories-error strong").text("");
